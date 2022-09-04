@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import countriesReducer from './countriesSlice'
+import quizReducer from './quizSlice'
 
 export default configureStore({
   reducer: {
-    countries: countriesReducer
+    countries: quizReducer
   },
 })
