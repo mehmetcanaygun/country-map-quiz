@@ -34,12 +34,19 @@ const Quiz = () => {
   return (
     <div className="quiz">
       <div className="input-wrapper">
+        <div className="time"></div>
+
         <input
           type="text"
           className="country-input"
           value={countryInput}
           onChange={(e) => onCountryInputChange(e.target.value)}
         />
+
+        <div className="score">
+          <span>{quizState.unlockedCountries.length}</span>/
+          {quizState.countries.length}
+        </div>
       </div>
 
       <div className="map-wrapper">

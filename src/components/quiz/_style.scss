@@ -3,12 +3,17 @@
   height: 100%;
   display: grid;
   grid-template-rows: 1fr 9fr;
-  gap: 2rem;
 
   .input-wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 1rem;
+
+    .time {
+      font-size: 1.5rem;
+      color: $color-light;
+    }
 
     .country-input {
       height: 80%;
@@ -25,9 +30,18 @@
         border-bottom: 1px solid $color-secondary;
       }
     }
+
+    .score {
+      font-size: 1.5rem;
+      color: $color-light;
+
+      span {
+        color: $color-success;
+      }
+    }
   }
 
   .map-wrapper {
-    padding: 1rem;
+    padding: 0.5rem 0;
   }
 }
