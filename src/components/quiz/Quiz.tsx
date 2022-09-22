@@ -17,7 +17,7 @@ const Quiz = () => {
   const controlCountry = () => {
     const found = quizState.countries.find(
       (country) =>
-        country.name.toLowerCase() === countryInput.toLowerCase() &&
+        country.name.toLowerCase() === countryInput.trim().toLowerCase() &&
         !quizState.unlockedCountries.includes(country.id)
     );
 

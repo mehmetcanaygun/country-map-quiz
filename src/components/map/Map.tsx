@@ -25,6 +25,7 @@ const Map = () => {
                 ? 'unlocked'
                 : 'disabled'
             }
+            onMouseEnter={() => console.log(country.name)}
           ></path>
         ))
       )}
