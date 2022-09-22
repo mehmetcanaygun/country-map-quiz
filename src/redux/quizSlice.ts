@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { countryList } from "../constants"
+import { formatCountryListForState } from "../utils";
 
-interface country {
+export interface country {
   name: string;
   id: number;
 }
@@ -11,25 +13,8 @@ export interface IQuizState {
 }
 
 const initialState: IQuizState = {
-  countries: [
-    {
-      name: "Türkiye",
-      id: 1
-    },
-    {
-      name: "İngiltere",
-      id: 2
-    },
-    {
-      name: "Almanya",
-      id: 3
-    },
-    {
-      name: "Fransa",
-      id: 4
-    }
-  ],
-  unlockedCountries: [4],
+  countries: formatCountryListForState(countryList),
+  unlockedCountries: [],
   isStarted: false
 }
 

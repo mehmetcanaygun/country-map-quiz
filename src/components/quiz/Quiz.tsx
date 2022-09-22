@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { IQuizState, unlockCountry } from '../../redux/quizSlice';
+import Map from '../map/Map';
 
 const Quiz = () => {
   const [countryInput, setCountryInput] = useState('');
@@ -32,11 +33,18 @@ const Quiz = () => {
 
   return (
     <div className="quiz">
-      <input
-        type="text"
-        value={countryInput}
-        onChange={(e) => onCountryInputChange(e.target.value)}
-      />
+      <div className="input-wrapper">
+        <input
+          type="text"
+          className="country-input"
+          value={countryInput}
+          onChange={(e) => onCountryInputChange(e.target.value)}
+        />
+      </div>
+
+      <div className="map-wrapper">
+        <Map />
+      </div>
     </div>
   );
 };

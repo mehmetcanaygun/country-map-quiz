@@ -1,0 +1,33 @@
+.quiz {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 9fr;
+  gap: 2rem;
+
+  .input-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .country-input {
+      height: 80%;
+      font-size: 2rem;
+      background: none;
+      color: $color-secondary;
+      border: none;
+      border-bottom: 1px solid $color-dark;
+      text-align: center;
+      transition: border-bottom 0.2s;
+
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid $color-secondary;
+      }
+    }
+  }
+
+  .map-wrapper {
+    padding: 1rem;
+  }
+}
