@@ -1,6 +1,6 @@
 .start-modal {
   width: 400px;
-  background-color: $color-light;
+  background-color: $color-dark;
   border-radius: 12px;
   box-shadow: 0 4px 30px 0 rgba($color-dark, 0.4);
   padding: 20px;
@@ -8,7 +8,7 @@
   animation: modalFadeDown 0.8s ease-in-out forwards;
 
   h1 {
-    color: $color-primary;
+    color: $color-light;
     margin-bottom: 2rem;
   }
 

@@ -1,16 +1,23 @@
 import { useSelector } from 'react-redux';
 import { IQuizState } from '../../redux/quizSlice';
-import StartModal from '../modals/startModal/StartModal';
+import Modal from '../modal/Modal';
 import Quiz from '../quiz/Quiz';
+import { PHASES } from '../../constants';
 
 const QuizWrapper = () => {
-  const isStarted = useSelector(
-    (state: { quiz: IQuizState }) => state.quiz.isStarted
-  );
+  const phase = useSelector((state: { quiz: IQuizState }) => state.quiz.phase);
 
-  return (
-    <div className="quiz-board">{isStarted ? <Quiz /> : <StartModal />}</div>
-  );
+  const renderPhase = () => {
+    if (phase === PHASES.START) {
+      return <Modal />;
+    } else if (phase === PHASES.QUIZ) {
+      return <Quiz />;
+    } else {
+      return <Modal />;
+    }
+  };
+
+  return <div className="quiz-board">{renderPhase()}</div>;
 };
 
 export default QuizWrapper;

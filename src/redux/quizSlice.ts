@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { countryList } from "../constants"
+import { countryList, PHASES } from "../constants"
 import { formatCountryListForState } from "../utils";
 
 export interface country {
@@ -9,21 +9,25 @@ export interface country {
 export interface IQuizState {
   countries: country[];
   unlockedCountries: number[];
-  isStarted: boolean;
+  phase: string;
 }
 
 const initialState: IQuizState = {
   countries: formatCountryListForState(countryList),
   unlockedCountries: [],
-  isStarted: false
+  phase: PHASES.START
 }
 
 const quizSlice = createSlice({
   name: 'quiz',
   initialState,
   reducers: {
-    start(state, action) {
-      state.isStarted = true
+    start(state) {
+      state.unlockedCountries = []
+      state.phase = PHASES.QUIZ
+    },
+    end(state) {
+      state.phase = PHASES.END
     },
     unlockCountry(state, action) {
       state.unlockedCountries.push(action.payload.id)
@@ -31,6 +35,6 @@ const quizSlice = createSlice({
   }
 })
 
-export const { start, unlockCountry } = quizSlice.actions
+export const { start, end, unlockCountry } = quizSlice.actions
 
 export default quizSlice.reducer
