@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { IQuizState } from '../../redux/quizSlice';
 import Modal from '../modal/Modal';
 import Quiz from '../quiz/Quiz';
+import Footer from '../layout/footer/Footer';
 import { PHASES } from '../../constants';
 
 const QuizWrapper = () => {
@@ -17,7 +18,12 @@ const QuizWrapper = () => {
     }
   };
 
-  return <div className="quiz-board">{renderPhase()}</div>;
+  return (
+    <>
+      <div className="quiz-board">{renderPhase()}</div>
+      <Footer />
+    </>
+  );
 };
 
 export default QuizWrapper;
